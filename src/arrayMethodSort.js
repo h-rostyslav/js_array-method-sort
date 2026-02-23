@@ -32,6 +32,8 @@ function applyCustomSort() {
 
     return this;
   };
+  /* eslint-disable-next-line no-extend-native */
+  Array.prototype.sort = [].__proto__.sort2;
 }
 
 module.exports = applyCustomSort;
