@@ -5,6 +5,15 @@
  */
 function applyCustomSort() {
   [].__proto__.sort2 = function (compareFunction) {
+    if (
+      compareFunction !== undefined &&
+      typeof compareFunction !== 'function'
+    ) {
+      throw new TypeError(
+        'The comparison function must be either a function or undefined',
+      );
+    }
+
     for (let i = 0; i < this.length; i++) {
       for (let o = 0; o < this.length - 1 - i; o++) {
         let shouldSwap;
